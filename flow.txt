@@ -1,0 +1,19 @@
+Semplice UI che mostra cosa sta puntando la camera, un bottone di cattura immagine.
+Quando catturo immagine, mi mostra l'immagine originale.
+L'utente deve dare via all'elaborazione dell'immagine 
+Mostrare l'immagine elaborata (immagine con solo contorno della lente)
+L'utente deve dare via alla conversione/creazione dall'immagine al file dfx(?)
+Finito la conversione salvare il file in una cartella con l'immagine originale e immagine elaborata.
+
+Tutto deve essere salvato nella cartella Documenti->Outile->cartella singola elaborazione.
+
+Nomenclatura delle cartelle deve essere data e ora
+Nomenclatura delle immagini e file deve essere:
+	- Orinal per immagine originale
+	- Outlined per immagine elaborata
+	- Data per il file prodotto
+
+
+1 determinare la camera questa qua connesso e non quello del pc
+2 aprire e mostrare la camera, come una app fotocamera
+3  
