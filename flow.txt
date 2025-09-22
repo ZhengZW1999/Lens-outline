@@ -13,7 +13,11 @@ Nomenclatura delle immagini e file deve essere:
 	- Outlined per immagine elaborata
 	- Data per il file prodotto
 
-
-1 determinare la camera questa qua connesso e non quello del pc
-2 aprire e mostrare la camera, come una app fotocamera
-3  
+1.Creare una finestra che mostra la live della camera
+2.Aggiungere un area sotto la finestra per inserire i comandi
+3.Aggiungere nell'area un bottone chiamato "Cattura"
+	Cattura deve scattare la foto e salvarla 
+4.Mostrare la foto scattata al posto della live della camera
+5.Al posto del bottone "Cattura" mostrare "Elabora"
+	Elabora deve elaborare la foto usando outline.py
+6.Aggiungere nell'area un bottone "Elabora" e un bottone "Ripeti"
