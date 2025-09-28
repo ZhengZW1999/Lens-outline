@@ -1,13 +1,23 @@
 import cv2
 import tkinter as tk
+from tkinter import Label, Button
 from PIL import Image, ImageTk
+import os
+from datetime import datetime
 
 device_index = 0
+camera = None
 frame = None
+captured_img = None
+elaborated_img = None
+status =  None
+
+# ==== PATH CARTELLA BASE ====
+BASE_DIR = os.path.join(os.path.expanduser("~"), "Documents", "Outline")
 
 # Funzione per aggiornare l'immagine nella finestra
 def update_frame():
-    ret, frame = cap.read()
+    ret, frame = camera.read()
     if ret:
         # Converti l'immagine da BGR (OpenCV) a RGB (Pillow)
         frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
@@ -26,7 +36,7 @@ def capture_image():
     if frame is None:
         return
     captured_img = frame.copy()
-    show_image(captured_img, original=True)
+    #show_image(captured_img, original=True)
     
 
 if __name__ == "__main__":
@@ -35,8 +45,8 @@ if __name__ == "__main__":
     Mostra la camera in una finestra Tkinter.
     """
     # Apri la camera
-    cap = cv2.VideoCapture(device_index)
-    if not cap.isOpened():
+    camera = cv2.VideoCapture(device_index)
+    if not camera.isOpened():
         raise RuntimeError(f"Impossibile aprire la camera con indice {device_index}")
 
     # Crea finestra Tkinter
@@ -47,12 +57,15 @@ if __name__ == "__main__":
     label = tk.Label(root)
     label.pack()
 
+    btn_capture = Button(root, text="Cattura Immagine", command=capture_image)
+    btn_capture.pack()
+
     # Avvia aggiornamento del frame
-    update_frame(device_index)
+    update_frame()
 
     # Quando chiudi la finestra, libera la camera
     def on_closing():
-        cap.release()
+        camera.release()
         root.destroy()
 
     root.protocol("WM_DELETE_WINDOW", on_closing)
